@@ -1,0 +1,21 @@
+%{
+#include<stdio.h>
+int t=0,c=0,s=0,l=0;
+%}
+%%
+\n  {l++;}
+[ ] {s++;}
+\t   {t++;}
+.    c++;
+%%
+int yywrap(){return 1;}
+int main()
+{
+
+yylex();
+printf("No of lines: %d\n",l);
+printf("No of space: %d\n",s);
+printf("No of tabs: %d\n",t);
+printf("No of char: %d\n",c);
+return 0;
+}
